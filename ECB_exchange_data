@@ -1,0 +1,26 @@
+import requests    
+import pandas as pd 
+import io
+
+entrypoint = 'https://sdw-wsrest.ecb.europa.eu/service/' 
+resource = 'data'           
+flowRef ='EXR'              
+key = 'D.BRL.EUR.SP00.A'    
+
+parameters = {
+    'startPeriod': '2020-01-01',  
+    'endPeriod': '2020-04-28'     
+}
+
+request_url = entrypoint + resource + '/'+ flowRef + '/' + key
+
+response = requests.get(request_url, params=parameters, headers={'Accept': 'text/csv'})
+
+ts = df.filter(['TIME_PERIOD', 'OBS_VALUE'], axis=1)
+
+ts['TIME_PERIOD'] = pd.to_datetime(ts['TIME_PERIOD'])
+
+ts = ts.set_index('TIME_PERIOD')
+
+%matplotlib inline
+ts.plot()
