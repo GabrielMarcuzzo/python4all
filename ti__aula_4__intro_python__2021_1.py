@@ -27,6 +27,8 @@ numero3 = 74
 resultado = (numero1 - numero2) / numero3
 print(resultado)
 
+# ferramenta para investimento
+
 # Criar variável popupança
 poupanca = 25000
 juros = 1.0423
