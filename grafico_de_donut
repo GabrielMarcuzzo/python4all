@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+circle = plt.Circle((0, 0),0.64, color="white")
+lbls = ["Energia", "Salários", "Fornecedores", "Marketing", "Combustível"]
+
+ax.pie([8,34,28,7,16],
+       labels=lbls,
+       autopct="%1.1f%%",
+       pctdistance=.82)
+ax.add_artist(circle)
+ax.set_title("Gráfico de Donut", fontsize=16)
+plt.show()
